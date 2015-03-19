@@ -23,9 +23,10 @@ public class LinkedListTest {
     
     public static void main(String[] args) {
         LinkedList list1 = makeRandom(10, 100);
-
         printList("list1", list1);
-        
+        System.out.println("list1 length = " + list1.getSize()); 
+        System.out.println("Delete the first element");
+          
 
     }
 

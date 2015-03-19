@@ -30,7 +30,19 @@ public class LinkedList {
         node.next = newNode;
     }
 
-    public LinkedList deleteNode(int nodeDataToDelete) {
+    public int getSize() {
+        int size = 1; // This method will only be successully if there is at least one element
+        LinkedList node = this;
+        while (node.hasNext()) {
+            size++;
+            node = node.next;
+        }
+        return size;
+    }
+
+    
+
+    public LinkedList deleteNodeWithValue(int nodeDataToDelete) {
         // If list is an instance of LinkedList, then this method should be called
         // list = deleteNode(int something). i.e. The return value should replace
         // the head of the list. 
