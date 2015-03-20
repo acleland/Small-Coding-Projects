@@ -40,7 +40,22 @@ public class LinkedList {
         return size;
     }
 
-    
+    public int getNode(int index) {
+        if (index < 0) 
+            throw new IllegalArgumentException(Integer.toString(index));
+        else if (index == 0)
+            return this.data;
+        LinkedList node = this;
+        int i = 0;
+        while (node.hasNext()) {
+            i++;
+            if (i == index) 
+                return node.next.data;
+            node = node.next;
+        }
+        throw new IllegalArgumentException(Integer.toString(index));
+    }
+
 
     public LinkedList deleteNodeWithValue(int nodeDataToDelete) {
         // If list is an instance of LinkedList, then this method should be called
