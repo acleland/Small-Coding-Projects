@@ -16,6 +16,14 @@ public class LinkedList {
         return (this.next != null);
     }
     
+    public int getData() {
+        return this.data;
+    }
+
+    public LinkedList getNext() {
+        return this.next;
+    }
+
     public void append(int nextData) {
 
         LinkedList newNode = new LinkedList(nextData);
@@ -69,7 +77,6 @@ public class LinkedList {
             return head.next;
         }
         
-
         // Iterate through nodes until value matches. 
         LinkedList node = head;
         while (node.hasNext()) {
@@ -82,7 +89,30 @@ public class LinkedList {
         return head;
     }
 
+    
+    // Delete Next
+    public void deleteNext() {
+        if (this.hasNext()) {
+            this.next = this.next.next;
+        }
+    }
 
+    // Remove duplicates - Interview question 2.1 from "Cracking the Coding Interview"
+    public void removeDuplicates() {
+        // For each element in the list, check against all remaining elements in the list
+        LinkedList node = this;
+        LinkedList runner = null;
+        while(node != null) {
+            runner = node;
+            while (runner.hasNext()) {
+                if (runner.next.data == node.data)
+                    runner.deleteNext();
+                else
+                    runner = runner.next;
+            }
+            node = node.next;
+        }
+    }
 
     public String toString() {
         String s = "";
